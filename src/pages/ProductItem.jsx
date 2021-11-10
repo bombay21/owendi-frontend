@@ -116,7 +116,12 @@ const ProductItem = () => {
   const [size, setSize] = useState("");
   const dispatch = useDispatch();
 
-  useEffect(()=>{
+  const onTop = () => {
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(() => {
+    onTop();
     const getProduct = async () => {
       try {
         const res = await publicRequest.get(`/products/find/${id}`);
@@ -124,7 +129,7 @@ const ProductItem = () => {
       } catch (error) {}
     };
     getProduct();
-  },[id])
+  }, [id]);
 
 const handleQuantity = (e) => {
   if(e === "inc"){

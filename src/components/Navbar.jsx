@@ -24,14 +24,17 @@ const Language = styled.span`
 const SearchContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-left: 25px;
-  border: 0.5px solid lightgray;
+  border: 2px solid black;
+  border-radius: 5px;
   ${mobile({ marginLeft: "10px" })}
 `;
 
 const Input = styled.input`
   border: none;
-  padding: 5px;
+  padding: 10px 20px;
+  width: 100%;
   ${mobile({ width: "50px" })}
 
   &:focus{
@@ -65,29 +68,41 @@ const MenuItem = styled.div`
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
+const HomeLink = styled(Link)`
+  color: initial !important;
+  text-decoration: none;
+`;
+
 const Navbar = () => {
 const {quantity} = useSelector(state=>state.cart)
+const {currentUser} = useSelector(state=>state.user)
 
     return (
       <Container>
         <Wrapper>
           <Left>
-            <Language>EN</Language>
-            <SearchContainer>
-              <Input placeholder="Search" />
-              <Search style={{ color: "gray", fontSize: 16 }} />
-            </SearchContainer>
+            <HomeLink to="/">
+              <Logo>O'wendi</Logo>
+            </HomeLink>
           </Left>
           <Center>
-            <Logo>O'wendi</Logo>
+            <SearchContainer>
+              <Input placeholder="Search products, categories and brands" />
+              <Search style={{ color: "gray", fontSize: 20 }} />
+            </SearchContainer>
           </Center>
           <Right>
-            <MenuItem>REGISTER</MenuItem>
-            <MenuItem>LOGIN</MenuItem>
+            {!currentUser && (
+              <>
+                <MenuItem>REGISTER</MenuItem>
+                <MenuItem>LOGIN</MenuItem>
+              </>
+            )}
+
             <Link to="/cart">
               <MenuItem>
                 <Badge badgeContent={quantity} color="warning">
-                  <ShoppingCartOutlined color="action" />
+                  <ShoppingCartOutlined color="action" style={{color:'black'}} />
                 </Badge>
               </MenuItem>
             </Link>

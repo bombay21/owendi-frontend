@@ -6,8 +6,8 @@ import { useState } from 'react'
 import { mobile } from '../responsive'
 
 const Container = styled.div`
-  width: 100%;
-  height: 100vh;
+  width: 100vw;
+  height: 70vh;
   display: flex;
   background: white;
   position: relative;
@@ -28,16 +28,16 @@ const Slide = styled.div`
   background-color: #${props => props.bg};
 `
 const ImageContainer = styled.div`
-  flex: 1;
+  /* flex: 1; */
   height: 100%;
   overflow: hidden;
 `
 const InfoContainer = styled.div`
- flex: 1;
+ flex: 2;
  padding: 50px;
 `
 const Title = styled.h1`
-font-size: 70px;
+font-size: 40px;
 `
 const Description = styled.p`
 margin: 50px 0;
@@ -51,10 +51,10 @@ background-color: transparent;
 cursor: pointer;
 `;
 const Image = styled.img`
- flex: 1;
+ /* flex: 1; */
  height: 100%;
- width: 100%;
- object-fit: cover;
+ max-width: 100%;
+ /* object-fit: cover; */
 `
 
 const Arrow = styled.div`
@@ -87,6 +87,7 @@ const Slider = () => {
       setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0)
     }
   }
+  console.log(sliderItems);
 
     return (
       <Container>
@@ -99,11 +100,11 @@ const Slider = () => {
               <ImageContainer>
                 <Image src={item.img} />
               </ImageContainer>
-              <InfoContainer>
+              {/* <InfoContainer>
                 <Title>{item.title}</Title>
                 <Description>{item.desc}</Description>
                 <ShopNow>Shop Now</ShopNow>
-              </InfoContainer>
+              </InfoContainer> */}
             </Slide>
           ))}
         </Wrapper>
