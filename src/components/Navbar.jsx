@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom'
 
 const Container = styled.div`
   height: 60px;
+  -webkit-box-shadow: 0 4px 4px -4px rgb(0 0 0 / 12%);
+  box-shadow: 0 4px 4px -4px rgb(0 0 0 / 12%);
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;

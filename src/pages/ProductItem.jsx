@@ -149,8 +149,8 @@ const handleAddToCart = () => {
 
   return (
     <Container>
-      <Navbar />
       <Announcement />
+      <Navbar />
       <Wrapper>
         <ImgContainer>
           <Image src={product.img} />

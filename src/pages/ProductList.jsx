@@ -19,8 +19,11 @@ const Filter = styled.div`
   margin: 20px;
   ${mobile({ margin: "0 20px", display: "flex", flexDirection: "column" })}
 `;
-const Title = styled.h1`
+const Title = styled.h2`
   margin: 20px;
+  text-align: center;
+  color: teal;
+  font-weight: 300;
 `;
 const FilterText = styled.span`
   font-size: 20px;
@@ -58,8 +61,8 @@ const onTop = () => {
   }
     return (
       <Container>
-        <Navbar />
         <Announcement />
+        <Navbar />
         <Title>{cat}</Title>
         <FilterContainer>
           <Filter>

@@ -191,8 +191,8 @@ const onClose = () => {
 
   return (
     <Container>
-      <Navbar />
       <Announcement />
+      <Navbar />
       <Wrapper>
         <Title>CART</Title>
         <Top>

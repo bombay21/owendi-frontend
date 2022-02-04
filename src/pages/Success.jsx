@@ -21,7 +21,6 @@ const Image = styled.img`
 const Success = () => {
   const location = useLocation();
   const {state: {data}} = location
-  console.log(location)
   return (
     <Container>
       <Image src={successimage} />
